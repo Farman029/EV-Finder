@@ -106,7 +106,8 @@ const handleSearch = (e) => {
           ) : (
             <>
               <Link to="/login" className="hover:text-gray-200 font-medium">Login</Link>
-              <Link to="/register" className="bg-green-600 px-2 py-2 rounded-xl  text-lg  hover:bg-green-400 hidden lg:block transition shadow-sm font-medium">
+              <Link to="/register" className="bg-green-600 px-2 py-2 rounded-xl text-lg hover:bg-green-400 transition shadow-sm font-medium">
+                
                 Register
               </Link>
             </>

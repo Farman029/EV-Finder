@@ -73,7 +73,7 @@ const BookingModal = ({ station, onClose }) => {
       if (!token) return toast.error("Please Login to Book!");
 
       await axios.post(
-        'http://localhost:5000/api/bookings/book', 
+        'api/bookings/book', 
         {
           stationId: station._id,
           bookingDate: date,

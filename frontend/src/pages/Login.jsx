@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // ✅ 1. Imported Link
 import api from '../api';
 import toast from 'react-hot-toast';
 
@@ -14,21 +14,15 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Send data to Backend
       const res = await api.post('/auth/login', formData);
-      // console.log(" printing token coming from response ");
       
-      // console.log(res.data.token);
-      
-      // If success, save the token and user info
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
-      // window.location.href = '/dashboard'; // <--- Forces a hard reload
-       toast.success( 'Login Successful!');
-      navigate('/'); // Go to Home Page
+      
+      toast.success('Login Successful!');
+      navigate('/');
     } catch (err) {
-         toast.error(  'Login Failed: ' + (err.response?.data?.msg || 'Error') );
-      // alert('Login Failed: ' + (err.response?.data?.msg || 'Error'));
+      toast.error('Login Failed: ' + (err.response?.data?.msg || 'Error'));
     }
   };
 
@@ -58,10 +52,24 @@ const Login = () => {
               required 
             />
           </div>
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
             Login
           </button>
         </form>
+
+        {/* ✅ 2. Added Register Link Section */}
+        <div className="mt-6 text-center border-t pt-4">
+          <p className="text-gray-600">
+            Don't have an account?{' '}
+            <Link 
+              to="/register" 
+              className="text-blue-600 hover:text-blue-800 font-semibold hover:underline transition"
+            >
+              Register here
+            </Link>
+          </p>
+        </div>
+
       </div>
     </div>
   );
