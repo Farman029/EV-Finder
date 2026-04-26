@@ -67,7 +67,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center md:text-left">
           <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
             <p>Privacy Policy | Terms of Service</p>
-            <p className="mt-2 md:mt-0">Made by <span class=" hover:text-green-400">  Farman  </span>  </p>
+            {/* <p className="mt-2 md:mt-0">Made by <span class=" hover:text-green-400">  Farman  </span>  </p> */}
           </div>
         </div>
       </div>
